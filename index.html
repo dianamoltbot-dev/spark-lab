@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spark Lab — Sistemas Agénticos para Negocios | Spark101</title>
+  <meta name="description" content="Spark Lab es un laboratorio experimental donde diseñamos y desplegamos sistemas agénticos que trabajan 24/7 para negocios, PyMEs y profesionales.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: Inter, sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399, #10b981, #059669);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass-card {
+      background: rgba(23, 23, 23, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .glow-border {
+      box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.15), 0 0 40px -10px rgba(52, 211, 153, 0.1);
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    }
+    .date-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(52, 211, 153, 0.04));
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+    .date-card:hover {
+      border-color: rgba(52, 211, 153, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px -8px rgba(16, 185, 129, 0.15);
+    }
+    .check-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #10b981, transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .check-item:hover::before { opacity: 1; }
+    .mentor-card {
+      transition: all 0.3s ease;
+    }
+    .mentor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px -10px rgba(16, 185, 129, 0.15);
+    }
+    @media (max-width: 640px) {
+      .hero-title { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 text-white antialiased">
+
+  <!-- HERO -->
+  <header class="relative overflow-hidden">
+    <div class="hero-glow absolute inset-0 pointer-events-none"></div>
+    <!-- Decorative dots -->
+    <div class="absolute top-20 left-10 w-2 h-2 rounded-full bg-emerald-500/30 animate-pulse-slow"></div>
+    <div class="absolute top-40 right-20 w-1.5 h-1.5 rounded-full bg-emerald-400/20 animate-pulse-slow" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-20 left-1/4 w-1 h-1 rounded-full bg-emerald-500/25 animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+    <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 relative">
+      <!-- Nav minimal -->
+      <nav class="flex justify-between items-center mb-20">
+        <span class="text-lg font-bold tracking-tight">spark<span class="text-emerald-400">101</span></span>
+        <a href="https://wa.me/541166094742?text=Quiero%20info%20de%20Spark%20Lab" target="_blank" class="text-sm text-gray-400 hover:text-emerald-400 transition-colors">
+          Contacto →
+        </a>
+      </nav>
+
+      <section class="text-center">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-card border border-emerald-500/20 text-sm font-semibold text-emerald-300 mb-8 animate-float">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          Laboratorio experimental de sistemas agénticos
+        </div>
+
+        <h1 class="hero-title text-5xl sm:text-7xl font-extrabold leading-none tracking-tight">
+          SPARK <span class="gradient-text">LAB</span>
+        </h1>
+
+        <h2 class="mt-6 text-xl sm:text-3xl font-bold text-gray-200">
+          Sistemas de IA que trabajan para vos, <span class="text-emerald-400">24/7</span>
+        </h2>
+
+        <p class="mt-8 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          Un laboratorio práctico donde aprendés a <strong class="text-gray-200">pensar, diseñar y desplegar sistemas agénticos reales</strong> que automatizan tareas, ejecutan procesos y escalan tu negocio.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/541166094742?text=Ok%20quiero%20sumarme" target="_blank"
+             class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25">
+            🚀 Quiero sumarme
+          </a>
+          <a href="#fechas"
+             class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border border-neutral-700 hover:border-emerald-500/50 text-gray-300 hover:text-white font-semibold transition-all duration-300">
+            Ver fechas ↓
+          </a>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6">
+
+    <!-- QUÉ ES -->
+    <section class="mt-24">
+      <div class="rounded-3xl glass-card glow-border border border-neutral-800 p-10 sm:p-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">🧬</span>
+          <h3 class="text-3xl font-extrabold">¿Qué es Spark Lab?</h3>
+        </div>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+          No es un curso tradicional. No es solo un chatbot. Es un <strong class="text-gray-200">espacio experimental</strong> donde trabajamos con sistemas agénticos que:
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Ejecutan tareas reales (emails, agenda, búsquedas, automatizaciones)</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Funcionan de forma autónoma, no solo responden</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Despliegan proyectos completos para tu negocio o trabajo</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Trabajan 24/7 en entornos seguros (sandbox / cloud)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FECHAS -->
+    <section id="fechas" class="mt-24">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-emerald-400 uppercase tracking-widest">Próximas sesiones</span>
+        <h3 class="text-3xl font-extrabold mt-3">📅 Calendario del Lab</h3>
+        <p class="text-gray-400 mt-3 max-w-xl mx-auto">Dos sesiones intensivas. Formato online en vivo. Cupos limitados.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Fecha 1 -->
+        <div class="date-card rounded-3xl p-8 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex-shrink-0 h-14 w-14 rounded-2xl bg-emerald-500/15 flex flex-col items-center justify-center">
+              <span class="text-emerald-400 text-xs font-bold uppercase">Feb</span>
+              <span class="text-emerald-300 text-xl font-extrabold leading-none">26</span>
+            </div>
+            <div>
+              <p class="text-white font-bold text-lg">Jueves 26/2 — 18:30hs</p>
+              <p class="text-emerald-400/70 text-sm font-medium">Sesión 1 de 2</p>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Arquitectura y diseño de tu Sistema Agéntico</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Entendé cómo funciona un agente por dentro: loops, decisiones, herramientas y el diseño del "soul" que define su personalidad y capacidades.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-neutral-800 text-xs text-gray-400 font-medium">Arquitectura</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 text-xs text-gray-400 font-medium">Diseño</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 text-xs text-gray-400 font-medium">Soul</span>
+          </div>
+        </div>
+        <!-- Fecha 2 -->
+        <div class="date-card rounded-3xl p-8 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex-shrink-0 h-14 w-14 rounded-2xl bg-emerald-500/15 flex flex-col items-center justify-center">
+              <span class="text-emerald-400 text-xs font-bold uppercase">Mar</span>
+              <span class="text-emerald-300 text-xl font-extrabold leading-none">05</span>
+            </div>
+            <div>
+              <p class="text-white font-bold text-lg">Jueves 5/3 — 18:30hs</p>
+              <p class="text-emerald-400/70 text-sm font-medium">Sesión 2 de 2</p>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Preparación para el despliegue seguro y escalable</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Del prototipo al deploy real: sandbox, Docker, costos de tokens, seguridad y cómo escalar tu sistema agéntico en producción.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-neutral-800 text-xs text-gray-400 font-medium">Deploy</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 text-xs text-gray-400 font-medium">Seguridad</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 text-xs text-gray-400 font-medium">Escalabilidad</span>
+          </div>
+        </div>
+      </div>
+      <!-- CTA bajo fechas -->
+      <div class="text-center mt-10">
+        <a href="https://wa.me/541166094742?text=Ok%20quiero%20sumarme" target="_blank"
+           class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25">
+          Reservar mi lugar →
+        </a>
+        <p class="text-gray-500 text-sm mt-3">Cupos limitados. La inscripción es por WhatsApp.</p>
+      </div>
+    </section>
+
+    <!-- OPENCLAW -->
+    <section class="mt-24">
+      <div class="rounded-3xl glass-card glow-border border border-neutral-800 p-10 sm:p-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">⚡</span>
+          <h3 class="text-3xl font-extrabold">El corazón del laboratorio: OpenClaw</h3>
+        </div>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          Trabajamos con <strong class="text-gray-200">OpenClaw</strong>, una arquitectura de agentes que va más allá del chat: es un sistema que puede ejecutar acciones, tomar decisiones y coordinar tareas reales.
+        </p>
+        <p class="mt-6 text-gray-400 text-lg">En Spark Lab aprendés:</p>
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Cómo funciona un agente por dentro (arquitectura y loops)</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Economía de tokens y costos reales de operación</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Instalación segura (Docker, cloud, sandbox)</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Diseño del "soul": personalidad, skills y rol del agente</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODO SANDBOX -->
+    <section class="mt-24">
+      <div class="rounded-3xl glass-card glow-border border border-neutral-800 p-10 sm:p-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">🛡️</span>
+          <h3 class="text-3xl font-extrabold">Modo Sandbox (sin riesgos)</h3>
+        </div>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+          Todo Spark Lab se trabaja en <strong class="text-gray-200">modo sandbox</strong>. Los participantes no instalan nada en sus computadoras.
+        </p>
+        <div class="space-y-4">
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Entornos aislados y controlados</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Bots accesibles vía Telegram o WhatsApp</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Nada toca archivos locales ni datos personales</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN -->
+    <section class="mt-24">
+      <div class="rounded-3xl glass-card glow-border border border-neutral-800 p-10 sm:p-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">🎯</span>
+          <h3 class="text-3xl font-extrabold">¿Para quién es Spark Lab?</h3>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Dueños de PyMEs y negocios</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Consultores, profesionales y freelancers</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Equipos que quieren automatizar sin improvisar</p>
+          </div>
+          <div class="check-item relative flex items-start gap-3 p-4 rounded-xl hover:bg-emerald-500/5 transition-all">
+            <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">✓</span>
+            <p class="text-gray-300">Personas que quieren entender IA como sistema, no como moda</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NÚMEROS / STATS -->
+    <section class="mt-24">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-2xl glass-card border border-neutral-800 p-6 text-center">
+          <p class="text-3xl font-extrabold gradient-text">2</p>
+          <p class="text-gray-500 text-sm mt-1">Sesiones intensivas</p>
+        </div>
+        <div class="rounded-2xl glass-card border border-neutral-800 p-6 text-center">
+          <p class="text-3xl font-extrabold gradient-text">24/7</p>
+          <p class="text-gray-500 text-sm mt-1">Agentes activos</p>
+        </div>
+        <div class="rounded-2xl glass-card border border-neutral-800 p-6 text-center">
+          <p class="text-3xl font-extrabold gradient-text">0</p>
+          <p class="text-gray-500 text-sm mt-1">Instalaciones locales</p>
+        </div>
+        <div class="rounded-2xl glass-card border border-neutral-800 p-6 text-center">
+          <p class="text-3xl font-extrabold gradient-text">100%</p>
+          <p class="text-gray-500 text-sm mt-1">Práctico y real</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MENTORES -->
+  <section class="mt-24 py-20 border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-emerald-400 uppercase tracking-widest">Equipo</span>
+        <h2 class="text-3xl font-extrabold mt-3">Mentores del laboratorio</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="mentor-card rounded-3xl glass-card glow-border border border-neutral-800 p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-500/15 flex items-center justify-center text-xl">👩‍💻</div>
+            <div>
+              <h3 class="text-xl font-bold text-emerald-400">Camila Velasco</h3>
+              <p class="text-gray-500 text-sm">Fundadora de Spark101</p>
+            </div>
+          </div>
+          <p class="text-gray-400 leading-relaxed">
+            Ingeniera industrial. Especialista en IA aplicada. Acompaña empresas y profesionales a diseñar sistemas de IA eficientes, escalables y seguros.
+          </p>
+        </div>
+        <div class="mentor-card rounded-3xl glass-card glow-border border border-neutral-800 p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-500/15 flex items-center justify-center text-xl">⚡</div>
+            <div>
+              <h3 class="text-xl font-bold text-emerald-400">Agustín Kassis</h3>
+              <p class="text-gray-500 text-sm">Fundador de La Crypta</p>
+            </div>
+          </div>
+          <p class="text-gray-400 leading-relaxed">
+            Desarrollador full-stack y bitcoiner. Impulsa la hiperbitcoinización con proyectos open-source, estándares abiertos y economías circulares en Latinoamérica.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="py-16 border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-gray-500 text-sm uppercase tracking-widest mb-8">Un laboratorio impulsado por</p>
+      <div class="flex justify-center items-center gap-16 opacity-50 hover:opacity-70 transition-opacity">
+        <img src="images/spark101-logo.png" alt="Spark101 Logo" class="h-14 w-auto">
+        <img src="images/LaCrypta_Logo_Blanco.jpg" alt="La Crypta Logo" class="h-14 w-auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-emerald-400 uppercase tracking-widest">FAQ</span>
+        <h2 class="text-3xl font-extrabold mt-3">Preguntas frecuentes</h2>
+      </div>
+      <div class="space-y-6">
+        <details class="group rounded-2xl glass-card border border-neutral-800 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-800/30 transition-colors">
+            <span class="font-semibold text-gray-200">¿Necesito saber programar?</span>
+            <span class="text-emerald-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-400">
+            No. Spark Lab está diseñado para que entiendas la lógica de los sistemas agénticos sin necesidad de escribir código. Si sabés programar, mejor, pero no es requisito.
+          </div>
+        </details>
+        <details class="group rounded-2xl glass-card border border-neutral-800 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-800/30 transition-colors">
+            <span class="font-semibold text-gray-200">¿Es presencial o remoto?</span>
+            <span class="text-emerald-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-400">
+            100% online y en vivo. Podés participar desde cualquier lugar. Las sesiones quedan grabadas para los inscriptos.
+          </div>
+        </details>
+        <details class="group rounded-2xl glass-card border border-neutral-800 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-800/30 transition-colors">
+            <span class="font-semibold text-gray-200">¿Cuánto cuesta?</span>
+            <span class="text-emerald-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-400">
+            Escribinos por WhatsApp para conocer los planes y opciones de pago disponibles.
+          </div>
+        </details>
+        <details class="group rounded-2xl glass-card border border-neutral-800 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-800/30 transition-colors">
+            <span class="font-semibold text-gray-200">¿Qué me llevo al final?</span>
+            <span class="text-emerald-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-400">
+            Un sistema agéntico diseñado por vos, listo para desplegar. Más el conocimiento para entender, mantener y escalar cualquier agente de IA.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-12">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-gray-600 text-sm">© 2025 Spark101. Todos los derechos reservados.</p>
+      <p class="text-gray-700 text-xs mt-2">Hecho con 🧪 en Argentina</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/541166094742?text=Ok%20quiero%20sumarme" target="_blank"
+     class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-400 text-white rounded-2xl p-4 shadow-xl shadow-green-500/20 transition-all duration-300 hover:scale-110 z-50 flex items-center justify-center group">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+    </svg>
+  </a>
+
+</body>
+</html>
