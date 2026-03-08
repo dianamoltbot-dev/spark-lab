@@ -37,7 +37,11 @@ a:hover { color: var(--color-emerald-300); }
 
 img { max-width: 100%; height: auto; }
 
-/* Layout */
+/* Flow field canvas sits behind everything */
+#flowfield { position: fixed; top: 0; left: 0; z-index: 0; }
+
+/* Layout — everything above the canvas */
+.spark-nav, main, header, section, footer, .whatsapp-float { position: relative; z-index: 1; }
 .spark-container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 .spark-container-narrow { max-width: 768px; margin: 0 auto; padding: 0 1.5rem; }
 

@@ -42,6 +42,9 @@ function spark101_scripts() {
     // Theme stylesheet (WP required)
     wp_enqueue_style('spark101-theme', get_stylesheet_uri(), ['spark101-style'], SPARK101_VERSION);
 
+    // Flow field particles
+    wp_enqueue_script('spark101-flowfield', SPARK101_URI . '/assets/js/flowfield.js', [], SPARK101_VERSION, true);
+
     // Main JS
     wp_enqueue_script('spark101-main', SPARK101_URI . '/assets/js/main.js', [], SPARK101_VERSION, true);
 }
