@@ -670,6 +670,116 @@ a.tutor-btn-primary {
 }
 
 /* ============================================
+   SINGLE COURSE PAGE
+   ============================================ */
+/* Force all text white on single course */
+.tutor-single-course-content *,
+.tutor-course-details-page *,
+.tutor-single-course-sidebar *,
+.tutor-course-details-content *,
+.tutor-course-topic *,
+.tutor-course-content-list *,
+.tutor-accordion *,
+.tutor-course-benefits-wrap *,
+.tutor-course-requirements-wrap *,
+.tutor-course-target-audience-wrap *,
+.tutor-course-material-wrap *,
+.tutor-single-course-segment *,
+.tutor-course-details-tab *,
+body.single-courses *:not(script):not(style) {
+    color: var(--color-text) !important;
+}
+
+/* Single course backgrounds */
+.tutor-single-course-content,
+.tutor-course-details-page,
+.tutor-course-details-content,
+.tutor-single-course-sidebar,
+body.single-courses {
+    background: var(--color-bg) !important;
+}
+
+/* Course header / hero area */
+.tutor-course-details-header,
+.tutor-course-header {
+    background: var(--color-surface) !important;
+}
+
+/* Sidebar card */
+.tutor-single-course-sidebar .tutor-card,
+.tutor-course-sidebar,
+.tutor-sidebar-card {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 1rem !important;
+}
+
+/* Accordion / Topics */
+.tutor-accordion-item,
+.tutor-course-topic,
+.tutor-course-topic-header,
+.tutor-course-content-list-item {
+    background: var(--color-surface) !important;
+    border-color: var(--color-border) !important;
+}
+
+.tutor-accordion-item-header,
+.tutor-course-topic-header {
+    color: var(--color-text) !important;
+}
+
+/* Tabs */
+.tutor-course-details-tab .tutor-tab-item.is-active,
+.tutor-nav-item.is-active a,
+.tutor-tab-item.is-active {
+    color: var(--color-emerald-400) !important;
+    border-color: var(--color-emerald-400) !important;
+}
+
+/* Muted text on single page */
+.tutor-single-course-content .tutor-color-muted,
+.tutor-single-course-content .tutor-color-secondary,
+.tutor-course-details-content .tutor-meta span,
+body.single-courses .tutor-fs-7,
+body.single-courses .tutor-color-muted {
+    color: var(--color-text-muted) !important;
+}
+
+/* Course price */
+.tutor-course-price .tutor-fs-4,
+.tutor-course-sidebar .tutor-course-price * {
+    color: var(--color-emerald-400) !important;
+    font-weight: 800 !important;
+}
+
+/* Icons on single course */
+body.single-courses [class*="tutor-icon"] {
+    color: var(--color-emerald-400) !important;
+}
+
+/* Separator lines */
+body.single-courses hr,
+body.single-courses .tutor-hr {
+    border-color: var(--color-border) !important;
+}
+
+/* Enroll button on single page */
+.tutor-course-enroll-wrap .tutor-btn-primary,
+.tutor-enroll-course-button,
+.tutor-course-purchase-btn {
+    background: var(--color-emerald-500) !important;
+    border-color: var(--color-emerald-500) !important;
+    color: var(--color-bg) !important;
+    border-radius: 0.75rem !important;
+    font-weight: 700 !important;
+}
+.tutor-course-enroll-wrap .tutor-btn-primary:hover,
+.tutor-enroll-course-button:hover,
+.tutor-course-purchase-btn:hover {
+    background: var(--color-emerald-400) !important;
+}
+
+/* ============================================
    ANIMATIONS
    ============================================ */
 @keyframes float {
