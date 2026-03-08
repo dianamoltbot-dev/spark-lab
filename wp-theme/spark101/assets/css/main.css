@@ -557,22 +557,116 @@ img { max-width: 100%; height: auto; }
     color: var(--color-text) !important;
 }
 
+/* Course cards */
 .tutor-course-card,
-.tutor-card {
+.tutor-card,
+.tutor-card-body,
+.tutor-course-list-item {
     background: var(--color-surface) !important;
     border: 1px solid var(--color-border) !important;
     border-radius: 1rem !important;
 }
 
+/* ALL text inside Tutor elements — make visible */
+.tutor-wrap *,
+.tutor-course-card *,
+.tutor-card *,
+.tutor-card-body *,
+.tutor-course-list-item * {
+    color: var(--color-text) !important;
+}
+
+/* Course title */
+.tutor-course-name,
+.tutor-course-name a,
+.tutor-card .tutor-course-name,
+.tutor-course-header h3,
+.tutor-course-header h3 a,
+h3.tutor-course-name a {
+    color: var(--color-text) !important;
+    font-weight: 700 !important;
+}
+.tutor-course-name a:hover,
+.tutor-course-header h3 a:hover {
+    color: var(--color-emerald-400) !important;
+}
+
+/* Author, meta, muted text */
+.tutor-meta span,
+.tutor-meta a,
+.tutor-course-card .tutor-meta *,
+.tutor-color-muted,
+.tutor-color-secondary,
+.tutor-fs-7,
+.tutor-fs-6 {
+    color: var(--color-text-muted) !important;
+}
+
+/* Links and accents — emerald instead of blue */
+.tutor-wrap a,
+.tutor-color-primary,
+.tutor-color-brand,
+.tutor-icon-bookmark-line,
+.tutor-course-card a,
+.tutor-btn-outline-primary,
+.tutor-color-design-brand {
+    color: var(--color-emerald-400) !important;
+}
+.tutor-wrap a:hover {
+    color: var(--color-emerald-300) !important;
+}
+
+/* Primary buttons */
 .tutor-btn-primary,
-.tutor-button {
+.tutor-button,
+.tutor-btn.tutor-btn-primary,
+a.tutor-btn-primary {
     background: var(--color-emerald-500) !important;
     border-color: var(--color-emerald-500) !important;
     border-radius: 0.75rem !important;
+    color: var(--color-bg) !important;
 }
 .tutor-btn-primary:hover,
 .tutor-button:hover {
     background: var(--color-emerald-400) !important;
+    border-color: var(--color-emerald-400) !important;
+}
+
+/* Outline buttons */
+.tutor-btn-outline-primary {
+    border-color: var(--color-emerald-500) !important;
+    color: var(--color-emerald-400) !important;
+    background: transparent !important;
+}
+.tutor-btn-outline-primary:hover {
+    background: var(--color-emerald-500) !important;
+    color: var(--color-bg) !important;
+}
+
+/* Badge / bookmark icon */
+.tutor-icon-bookmark-line,
+.tutor-course-bookmark {
+    color: var(--color-emerald-400) !important;
+}
+
+/* Star ratings */
+.tutor-ratings .tutor-icon-star-bold {
+    color: var(--color-emerald-400) !important;
+}
+
+/* Dropdowns / selects */
+.tutor-wrap select,
+.tutor-form-select {
+    background: var(--color-surface) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-border) !important;
+}
+
+/* Archive/listing page background */
+.tutor-course-list,
+.tutor-courses-wrap,
+.tutor-course-archive-page {
+    background: transparent !important;
 }
 
 /* ============================================
