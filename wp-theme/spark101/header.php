@@ -23,7 +23,7 @@
             <li><a href="<?php echo home_url('/spark-academy'); ?>" <?php if (is_page('spark-academy') || (function_exists('tutor') && is_singular('courses'))) echo 'class="active"'; ?>>Spark Academy</a></li>
             <li>
                 <a href="<?php echo spark101_whatsapp_url('Quiero info de Spark101'); ?>" target="_blank" class="spark-nav__cta">
-                    🚀 Contacto
+                    Contacto
                 </a>
             </li>
         </ul>

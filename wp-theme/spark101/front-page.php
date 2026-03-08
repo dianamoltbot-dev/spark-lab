@@ -18,7 +18,7 @@ get_header();
 
         <h1>SPARK <span class="gradient-text">101</span></h1>
 
-        <h2>Aprendé, construí y desplegá <span class="accent">sistemas de IA reales</span></h2>
+        <h2>Aprendé, construí y desplegá <span class="accent">agentes / sistemas de IA que trabajen para vos</span></h2>
 
         <p class="spark-hero__desc">
             Dos caminos, un mismo objetivo: que la tecnología <strong>trabaje para tu negocio</strong>.
@@ -56,7 +56,7 @@ get_header();
                     <li><span class="check">✓</span> Arquitectura, deploy y seguridad</li>
                 </ul>
                 <div style="margin-top:1.5rem;">
-                    <a href="<?php echo home_url('/spark-lab'); ?>" class="btn btn-primary" style="font-size:1rem;padding:0.75rem 1.5rem;">
+                    <a href="https://luma.com/gbeekuzx" target="_blank" class="btn btn-primary" style="font-size:1rem;padding:0.75rem 1.5rem;">
                         Ver Spark Lab →
                     </a>
                 </div>
@@ -77,12 +77,29 @@ get_header();
                     <li><span class="check">✓</span> Acceso a comunidad de alumnos</li>
                 </ul>
                 <div style="margin-top:1.5rem;">
-                    <a href="<?php echo home_url('/spark-academy'); ?>" class="btn btn-primary" style="font-size:1rem;padding:0.75rem 1.5rem;">
+                    <a href="http://187.77.50.63/courses" target="_blank" class="btn btn-primary" style="font-size:1rem;padding:0.75rem 1.5rem;">
                         Ver cursos →
                     </a>
                 </div>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- PRÓXIMO EVENTO LUMA -->
+<section class="spark-section" style="padding-top:0;">
+    <div class="spark-container" style="text-align:center;">
+        <div class="glass-card glow-border" style="padding:2.5rem 3rem;">
+            <span class="spark-section__label">Próximo evento</span>
+            <h2 class="spark-section__title" style="margin-bottom:1rem;">🗓️ Sumate al próximo Spark Lab</h2>
+            <p style="color:var(--color-text-muted);margin-bottom:2rem;font-size:1.0625rem;">
+                Inscribite directamente al próximo workshop en vivo.
+            </p>
+            <a href="https://luma.com/event/evt-70encIRS8BqWMf0" class="luma-checkout--button btn btn-primary" data-luma-action="checkout" data-luma-event-id="evt-70encIRS8BqWMf0">
+                Inscribirse al evento
+            </a>
+            <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
         </div>
     </div>
 </section>
@@ -138,7 +155,7 @@ get_header();
                 <div class="stat-card__label">Práctico y aplicable</div>
             </div>
             <div class="stat-card glass-card">
-                <div class="stat-card__value">🇦🇷</div>
+                <div class="stat-card__value"><img src="https://flagcdn.com/w80/ar.png" alt="Argentina" style="height:2rem;display:inline;"></div>
                 <div class="stat-card__label">Hecho en Argentina</div>
             </div>
         </div>
