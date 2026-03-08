@@ -780,6 +780,94 @@ body.single-courses .tutor-hr {
 }
 
 /* ============================================
+   SIDEBAR — force dark
+   ============================================ */
+.tutor-single-course-sidebar *,
+.tutor-course-sidebar *,
+.tutor-sidebar-card *,
+.tutor-course-details-page .tutor-col-4 *,
+.tutor-single-course-segment .tutor-card *,
+aside * {
+    color: var(--color-text) !important;
+}
+
+.tutor-single-course-sidebar .tutor-card,
+.tutor-single-course-sidebar > div,
+.tutor-course-sidebar > div,
+.tutor-sidebar-card,
+.tutor-course-details-page .tutor-col-4 .tutor-card,
+.tutor-single-course-segment .tutor-card {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+/* Sidebar list items */
+.tutor-single-course-sidebar li,
+.tutor-sidebar-card li,
+.tutor-course-details-page .tutor-col-4 li {
+    color: var(--color-text) !important;
+}
+
+/* Sidebar headings */
+.tutor-single-course-sidebar h3,
+.tutor-single-course-sidebar h4,
+.tutor-sidebar-card h3,
+.tutor-sidebar-card h4 {
+    color: var(--color-emerald-400) !important;
+}
+
+/* ============================================
+   COURSE CONTENT ACCORDION — dark mode
+   ============================================ */
+/* Topic headers (Módulo 1, 2, 3...) */
+.tutor-accordion-item-header,
+.tutor-course-topic-header,
+.tutor-accordion-item-header *,
+.tutor-course-topic-header *,
+.tutor-course-content-title,
+.tutor-course-content-title *,
+[class*="tutor-accordion"] [class*="header"],
+[class*="tutor-accordion"] [class*="header"] * {
+    background: var(--color-surface) !important;
+    color: var(--color-text) !important;
+}
+
+/* Accordion body / lesson items */
+.tutor-accordion-item-body,
+.tutor-accordion-item-body *,
+.tutor-course-content-list,
+.tutor-course-content-list *,
+.tutor-course-content-list-item,
+.tutor-course-content-list-item * {
+    background: var(--color-bg) !important;
+    color: var(--color-text) !important;
+}
+
+/* Accordion borders */
+.tutor-accordion-item,
+.tutor-accordion-item-header,
+.tutor-accordion-item-body,
+.tutor-course-content-list-item {
+    border-color: var(--color-border) !important;
+}
+
+/* Chevron / arrow icons in accordion */
+.tutor-accordion-item-header .tutor-icon,
+.tutor-accordion-item-header [class*="icon"],
+.tutor-course-topic-header .tutor-icon {
+    color: var(--color-emerald-400) !important;
+}
+
+/* Course info tab area — remove light backgrounds */
+.tutor-course-details-tab,
+.tutor-tab-body,
+.tutor-tab-body-item,
+.tutor-course-details-content > div,
+#tutor-course-details-tab-info {
+    background: transparent !important;
+}
+
+/* ============================================
    ANIMATIONS
    ============================================ */
 @keyframes float {
