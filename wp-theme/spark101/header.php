@@ -19,8 +19,8 @@
 
         <ul class="spark-nav__links">
             <li><a href="<?php echo home_url(); ?>" <?php if (is_front_page()) echo 'class="active"'; ?>>Inicio</a></li>
-            <li><a href="<?php echo home_url('/spark-lab'); ?>" <?php if (is_page('spark-lab')) echo 'class="active"'; ?>>Spark Lab</a></li>
-            <li><a href="<?php echo home_url('/spark-academy'); ?>" <?php if (is_page('spark-academy') || (function_exists('tutor') && is_singular('courses'))) echo 'class="active"'; ?>>Spark Academy</a></li>
+            <li><a href="https://luma.com/gbeekuzx" target="_blank">Spark Lab</a></li>
+            <li><a href="<?php echo home_url('/courses'); ?>">Spark Academy</a></li>
             <li>
                 <a href="<?php echo spark101_whatsapp_url('Quiero info de Spark101'); ?>" target="_blank" class="spark-nav__cta">
                     Contacto
