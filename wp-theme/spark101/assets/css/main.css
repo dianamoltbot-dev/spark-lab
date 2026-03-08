@@ -1,0 +1,601 @@
+/* ============================================
+   Spark101 Theme — Main Stylesheet
+   Dark + Emerald | Inter Font
+   ============================================ */
+
+:root {
+    --color-bg: #0a0a0a;
+    --color-surface: #171717;
+    --color-border: #262626;
+    --color-text: #e5e5e5;
+    --color-text-muted: #a3a3a3;
+    --color-text-dim: #737373;
+    --color-emerald-50: #ecfdf5;
+    --color-emerald-300: #6ee7b7;
+    --color-emerald-400: #34d399;
+    --color-emerald-500: #10b981;
+    --color-emerald-600: #059669;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Reset & Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+a { color: var(--color-emerald-400); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--color-emerald-300); }
+
+img { max-width: 100%; height: auto; }
+
+/* Layout */
+.spark-container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+.spark-container-narrow { max-width: 768px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.spark-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.spark-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.spark-nav__logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+}
+.spark-nav__logo span { color: var(--color-emerald-400); }
+
+.spark-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.spark-nav__links a {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.spark-nav__links a:hover,
+.spark-nav__links a.active { color: var(--color-emerald-400); }
+
+.spark-nav__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1rem;
+    background: var(--color-emerald-500);
+    color: var(--color-bg) !important;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+.spark-nav__cta:hover {
+    background: var(--color-emerald-400);
+    transform: scale(1.05);
+}
+
+/* Mobile nav toggle */
+.spark-nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .spark-nav__toggle { display: block; }
+    .spark-nav__links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .spark-nav__links.open { display: flex; }
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.spark-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.spark-hero__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.spark-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background: rgba(23, 23, 23, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-emerald-300);
+    margin-bottom: 2rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.spark-hero__badge .pulse-dot {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.spark-hero__badge .pulse-dot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--color-emerald-400);
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.spark-hero__badge .pulse-dot::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-emerald-500);
+}
+
+.spark-hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.spark-hero h1 .gradient-text {
+    background: linear-gradient(135deg, #34d399, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.spark-hero h2 {
+    margin-top: 1.5rem;
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+    font-weight: 700;
+    color: var(--color-text);
+}
+.spark-hero h2 .accent { color: var(--color-emerald-400); }
+
+.spark-hero__desc {
+    margin-top: 2rem;
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+.spark-hero__desc strong { color: var(--color-text); }
+
+.spark-hero__actions {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--color-emerald-500);
+    color: var(--color-bg);
+}
+.btn-primary:hover {
+    background: var(--color-emerald-400);
+    color: var(--color-bg);
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px -8px rgba(16, 185, 129, 0.25);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+}
+.btn-outline:hover {
+    border-color: rgba(52, 211, 153, 0.5);
+    color: var(--color-text);
+}
+
+/* ============================================
+   GLASS CARDS
+   ============================================ */
+.glass-card {
+    background: rgba(23, 23, 23, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+}
+
+.glow-border {
+    box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.15), 0 0 40px -10px rgba(52, 211, 153, 0.1);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.spark-section {
+    padding: 6rem 0;
+}
+
+.spark-section__label {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-emerald-400);
+    margin-bottom: 0.75rem;
+}
+
+.spark-section__title {
+    text-align: center;
+    font-size: 1.875rem;
+    font-weight: 800;
+}
+
+.spark-section__desc {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   FEATURE CARDS (Spark Lab / Spark Academy)
+   ============================================ */
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.offering-card {
+    padding: 2.5rem;
+    transition: all 0.3s;
+}
+.offering-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -10px rgba(16, 185, 129, 0.15);
+}
+
+.offering-card__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.offering-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-emerald-400);
+    margin-bottom: 0.75rem;
+}
+
+.offering-card p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.offering-card__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.offering-card__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+}
+
+.offering-card__features .check {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--color-emerald-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.125rem;
+}
+
+/* ============================================
+   STATS
+   ============================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.stat-card__value {
+    font-size: 1.875rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #34d399, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-card__label {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    margin-top: 0.25rem;
+}
+
+/* ============================================
+   MENTORS
+   ============================================ */
+.mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mentor-card {
+    padding: 2rem;
+    transition: all 0.3s;
+}
+.mentor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -10px rgba(16, 185, 129, 0.15);
+}
+
+.mentor-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.mentor-card__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background: rgba(16, 185, 129, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.mentor-card__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-emerald-400);
+}
+
+.mentor-card__role {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+}
+
+.mentor-card p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+
+.faq-item {
+    overflow: hidden;
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+    transition: background 0.2s;
+    list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { background: rgba(38, 38, 38, 0.3); }
+
+.faq-item summary .icon {
+    color: var(--color-emerald-400);
+    font-size: 1.25rem;
+    transition: transform 0.3s;
+}
+.faq-item[open] summary .icon { transform: rotate(45deg); }
+
+.faq-item__body {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.spark-footer {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.spark-footer p { color: var(--color-text-dim); font-size: 0.875rem; }
+.spark-footer .small { font-size: 0.75rem; margin-top: 0.5rem; color: #404040; }
+
+/* ============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: #22c55e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px -8px rgba(34, 197, 94, 0.3);
+    transition: all 0.3s;
+}
+.whatsapp-float:hover {
+    background: #4ade80;
+    transform: scale(1.1);
+    color: white;
+}
+.whatsapp-float svg { width: 1.75rem; height: 1.75rem; }
+
+/* ============================================
+   TUTOR LMS OVERRIDES
+   ============================================ */
+.tutor-wrap {
+    background: var(--color-bg) !important;
+    color: var(--color-text) !important;
+}
+
+.tutor-course-card,
+.tutor-card {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 1rem !important;
+}
+
+.tutor-btn-primary,
+.tutor-button {
+    background: var(--color-emerald-500) !important;
+    border-color: var(--color-emerald-500) !important;
+    border-radius: 0.75rem !important;
+}
+.tutor-btn-primary:hover,
+.tutor-button:hover {
+    background: var(--color-emerald-400) !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes ping {
+    75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.border-t { border-top: 1px solid rgba(255,255,255,0.05); }
